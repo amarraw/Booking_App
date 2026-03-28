@@ -21,6 +21,7 @@ class RoomSerializer(serializers.HyperlinkedModelSerializer):
             'maxOccupancy',
             'description',
             'is_created',
-            'is_updated'
+            'is_updated',
+            'images'
         ]
 
