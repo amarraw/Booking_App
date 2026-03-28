@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rooms, RoomImage
+from .models import Rooms, RoomImage, OccupiedDate
 
 @admin.register(Rooms)
 class RoomAdmin(admin.ModelAdmin):
@@ -11,3 +11,4 @@ class RoomAdmin(admin.ModelAdmin):
 class RoomImageAdmin(admin.ModelAdmin):
     list_display = ["room","image", "caption"]
     
+admin.site.register(OccupiedDate)

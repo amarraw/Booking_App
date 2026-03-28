@@ -4,8 +4,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.permissions import IsAuthenticated
-from .models import Rooms
-from .serializers import RoomSerializer
+from .models import Rooms, OccupiedDate
+from .serializers import RoomSerializer, OccupiedDateSerializer
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -27,3 +27,15 @@ class RoomList(generics.ListCreateAPIView):
 class RoomDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Rooms.objects.all()
     serializer_class = RoomSerializer
+
+
+class OccupiedDateList(generics.ListCreateAPIView):
+    queryset = OccupiedDate.objects.all()
+    serializer_class = OccupiedDateSerializer
+    permission_classes = [IsAuthenticated]
+    
+
+class OccupiedDateDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OccupiedDate.objects.all()
+    serializer_class = OccupiedDateSerializer
+    permission_classes = [IsAuthenticated]

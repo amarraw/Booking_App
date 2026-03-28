@@ -21,6 +21,9 @@ class Rooms(models.Model):
     is_created = models.DateTimeField(auto_now_add=True)
     is_updated = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 
 class RoomImage(models.Model):
     room = models.ForeignKey(Rooms, on_delete=models.CASCADE, related_name="images")
@@ -28,4 +31,9 @@ class RoomImage(models.Model):
     caption = models.CharField(max_length=100, blank=True, null=True)
 
 
-    
+class OccupiedDate(models.Model):
+    room = models.ForeignKey(Rooms, on_delete=models.CASCADE,related_name="occupiedDate")
+    date = models.DateField()
+
+    def __str__(self):
+        return f"{self.room}  {self.date}"
