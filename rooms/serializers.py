@@ -24,4 +24,7 @@ class RoomSerializer(serializers.HyperlinkedModelSerializer):
             'is_updated',
             'images'
         ]
+        extra_kwargs = {
+            'url': {'view_name': 'room-detail'}
+        }
 
