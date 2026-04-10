@@ -7,7 +7,11 @@ urlpatterns = [
     path('rooms/', views.RoomList.as_view(), name='room-list'),
     path('rooms/<int:pk>/', views.RoomDetail.as_view(), name='room-detail'),
     path('occupied-date/',views.OccupiedDateList.as_view(), name="occupieddate-list"),
-    path('occupied-date/<int:pk>',views.OccupiedDateDetails.as_view(), name="occupieddate-detail")
+    path('occupied-date/<int:pk>',views.OccupiedDateDetails.as_view(), name="occupieddate-detail"),
+    path('user/',views.UserList.as_view(), name="user-list"),
+    path('user/<int:pk>/', views.UserDetails.as_view(), name="user-detail" ),
+    path('login/',views.Login.as_view(), name="login"),
+    path("register/",views.Register.as_view(),name="register"),
 
 ]
 

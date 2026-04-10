@@ -26,8 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # rest
     'rest_framework',
+    'rest_framework.authtoken',
 
+    # app
     'rooms',
 
 ]
@@ -122,3 +125,10 @@ AUTHENTICATION_BACKENDS = [
     'rooms.auth_backend.EmailBackend' # custome backend
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
